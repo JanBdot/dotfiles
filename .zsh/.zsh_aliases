@@ -20,3 +20,4 @@ alias nv="nvim ."
 alias e="exit"
 
 alias dev="cd ~/dev/"
+alias c="clear"
