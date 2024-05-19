@@ -21,3 +21,11 @@ alias e="exit"
 
 alias dev="cd ~/dev/"
 alias c="clear"
+
+# tmux
+alias tdev="tmux attach -t dev"
+alias td="tmux attach -t dev"
+alias ttunnel="tmux attach -t tunnels"
+alias tt="tmux attach -t tunnels"
+alias tconfig="tmux attach -t config"
+alias tc="tmux attach -t config"

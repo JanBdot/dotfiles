@@ -78,7 +78,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git virtualenv zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(git virtualenv zsh-autosuggestions zsh-syntax-highlighting zsh-vi-mode)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -118,6 +118,11 @@ source $ZSH/oh-my-zsh.sh
 mkcd () {
     mkdir -p -- "$1" &&
     cd -P -- "$1"
+}
+
+gol () {
+    touch -- "$1" &&
+    goland -- "$1"
 }
 
 # export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"

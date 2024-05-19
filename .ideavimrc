@@ -1,0 +1,166 @@
+" You can find a list of commands here: https://jb.gg/h38q75
+" Find more examples here: https://jb.gg/share-ideavimrc
+
+source ~/.vimrc
+
+" -- Defaults --
+set scrolloff=5
+set scroll=7
+set incsearch
+set clipboard+=unnamed
+set relativenumber number
+
+" Enable which-key plugin
+set which-key
+set timeoutlen=60000
+
+" --- Enable IdeaVim plugins https://jb.gg/ideavim-plugins
+Plug 'machakann/vim-highlightedyank' " Highlight copied text
+Plug 'tpope/vim-commentary' " Commentary plugin
+Plug 'easymotion/vim-easymotion' " Easy Motions
+
+
+
+
+" -- Custom Hot Keys Below --
+
+" Jump to the end of the line
+nnoremap <C-e> $
+vnoremap <C-e> $
+
+" Split windows
+nmap <C-\> <Action>(SplitVertically)
+nmap <C--> <Action>(SplitHorizontally)
+nmap <C-=> <Action>(Unsplit)
+nmap <C-m> <Action>(MoveEditorToOppositeTabGroup)
+
+" Navigate splits
+nnoremap <C-Left> <C-W>h
+nnoremap <C-Right> <C-W>l
+nnoremap <C-Up> <C-W>k
+nnoremap <C-Down> <C-W>j
+
+" Navigate tabs (opened files)
+nmap <TAB> <Action>(NextSplitter)
+"nmap <A-TAB> :action PreviousTab<CR>
+"nmap <C-TAB> :action NextTab<CR>
+
+" Zen mode
+nmap <C-z> <Action>(ToggleDistractionFreeMode)
+
+
+
+
+
+" -- Leader commands below --
+
+" Set leader key to be space bar
+let mapleader=" "
+
+" Save commands
+let g:WhichkeyDesc_save = "<leader>s Save"
+
+nmap <leader>ss <Action>(SaveDocument)
+let g:WhichKeyDesc_save_single = "<leader>ss Save Document"
+
+nmap <leader>sa <Action>(SaveAll)
+let g:WhichKeyDesc_save_all = "<leader>sa Save All"
+
+nmap <leader>sr <Action>(IdeaVim.ReloadVimRc.reload)
+let g:WhichKeyDesc_save_vim = "<leader>sr Reload vim config"
+
+" Find commands
+let g:WhichKeyDesc_find = "<leader>f Find"
+
+nmap <leader>ff <Action>(GotoFile)
+let g:WhichKeyDesc_find_file = "<leader>ff Find File"
+
+nmap <leader>fw <Action>(FindInPath)
+let g:WhichKeyDesc_find_word = "<leader>fw Find Word"
+
+nmap <leader>fa <Action>(GotoAction)
+let g:WhichKeyDesc_find_action = "<leader>fa Find Action"
+
+
+" Go to commands
+let g:WhichKeyDesc_goto = "g Go To"
+
+nmap gd <Action>(GotoDeclaration)
+let g:WhichKeyDesc_goto_definition = "gd Go To Definition"
+
+nmap gi <Action>(GotoImplementation)
+let g:WhichKeyDesc_goto_implementation = "gi Go To Implementation"
+
+nmap gr <Action>(ShowUsages)
+let g:WhichKeyDesc_goto_references = "gr Go To References"
+
+
+" Jump to commands
+
+let g:WhichKeyDesc_jump_to = "<leader>j Jump To"
+
+nmap <leader>jb <Plug>(easymotion-s)
+let g:WhichKeyDesc_jump_to_backwards = "<leader>jb Jump To Backwards"
+
+nmap <leader>jf <Plug>(easymotion-f)
+let g:WhichKeyDesc_jump_to_forward = "<leader>jf Jump To Forward"
+
+nmap <leader>jn <Action>(ShowNavBar)
+let g:WhichKeyDesc_jump_to_navigation = "<leader>jn Jump To Navigation"
+
+
+
+" Git commands
+let g:WhichKeyDesc_git = "<leader>g Git"
+
+nmap <leader>gp <Action>(Vcs.QuickListPopupAction)
+let g:WhichKeyDesc_git_popup = "<leader>gp Git Popup"
+
+nmap <leader>gd <Action>(Compare.SameVersion)
+let g:WhichKeyDesc_git_diff = "<leader>gd Git Diff"
+
+nmap <leader>gr <Action>(Vcs.RollbackChangedLines)
+let g:WhichKeyDesc_git_reset = "<leader>gr Git Reset"
+
+nmap <leader>gb <Action>(Annotate)
+let g:WhichKeyDesc_git_blame = "<leader>gb Git Blame"
+
+
+
+" Close commands
+let g:WhichKeyDesc_close = "<leader>x Close"
+
+nmap <leader>xn <Action>(CloseAllNotifications)
+let g:WhichKeyDesc_close_notifications = "<leader>xn Close Notifications"
+
+nmap <leader>xt <Action>(HideActiveWindow)
+let g:WhichKeyDesc_close_tool = "<leader>xt Close Tool"
+
+
+
+" LSP commands
+let g:WhichKeyDesc_lsp = "<leader>l LSP"
+
+nmap <leader>ld <Action>(ShowErrorDescription)
+let g:WhichKeyDesc_lsp_show_error = "<leader>ld Show Error"
+
+nmap <leader>lD <Action>(ActivateProblemsViewToolWindow)
+let g:WhichKeyDesc_lsp_show_all_errors = "<leader>lD Show All Errors"
+
+
+
+" Debugger commands
+let g:WhichKeyDesc_debug = "<leader>d Debugger"
+
+nmap <leader>db <Action>(ToggleLineBreakpoint)
+let g:WhichKeyDesc_debug_toggle_breakpoint = "<leader>db Toggle Break Point"
+
+nmap <leader>dr <Action>(Run)
+let g:WhichKeyDesc_debug_run = "<leader>dr Run"
+
+
+" Editor commands
+let g:WhichKeyDesc_editor = "<leader>e Editor"
+
+nmap <leader>ee <S-C-=>
+let g:WhichKeyDesc_editor_expand = "<leader>ee Expand Editor"
