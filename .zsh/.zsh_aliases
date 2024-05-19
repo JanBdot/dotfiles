@@ -29,3 +29,12 @@ alias ttunnel="tmux attach -t tunnels"
 alias tt="tmux attach -t tunnels"
 alias tconfig="tmux attach -t config"
 alias tc="tmux attach -t config"
+
+# tmux scripts and aliases
+attach_or_create_tmux_session() {
+    session_name="$1"
+    tmux attach-session -t "$session_name" || tmux new-session -s "$session_name"
+}
+alias ta='attach_or_create_tmux_session'
+alias tdev='attach_or_create_tmux_session dev'
+alias ttools='attach_or_create_tmux_session tools'

@@ -127,3 +127,18 @@ gol () {
 
 # export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
 
+# Check if go is installed and add to PATH
+[[ -f /usr/local/go ]] || export PATH=$PATH:/usr/local/go/bin
+
+# Setup nvm 
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+
+[[ ! -f ~/.tmux/plugins/tpm ]] || git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
+export XDG_CONFIG_HOME=~/.config
+
+
+export PATH=$PATH:/usr/local/bin
