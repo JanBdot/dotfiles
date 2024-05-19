@@ -140,5 +140,4 @@ export NVM_DIR="$HOME/.nvm"
 
 export XDG_CONFIG_HOME=~/.config
 
-
 export PATH=$PATH:/usr/local/bin
