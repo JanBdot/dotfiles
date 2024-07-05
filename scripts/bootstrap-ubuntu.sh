@@ -6,7 +6,7 @@ install_tools() {
     sudo apt install make
     sudo apt install zsh
     sudo apt install tmux
-    sudo apt install python3.12
+    sudo apt install python3
     sudo apt install python3-neovim
 }
 
@@ -54,13 +54,8 @@ install_zsh_plugins() {
     fi
 }
 
-install_tmux_plugins() {
-    
-}
 
 # Main
 install_tools
 install_zsh_plugins
-install_tmux_plugins
-
 setup_dotfiles
