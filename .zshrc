@@ -78,7 +78,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git virtualenv zsh-autosuggestions zsh-syntax-highlighting zsh-vi-mode)
+plugins=(git virtualenv zsh-autosuggestions zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -141,3 +141,11 @@ export NVM_DIR="$HOME/.nvm"
 export XDG_CONFIG_HOME=~/.config
 
 export PATH=$PATH:/usr/local/bin
+
+
+# Load Angular CLI autocompletion.
+source <(ng completion script)
+
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+

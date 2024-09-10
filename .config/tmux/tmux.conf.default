@@ -1,0 +1,37 @@
+# Basic settings
+set-option -sa terminal-overrides ",xterm*:Tc"
+set -g mouse on
+
+# Set prefix
+unbind C-b
+set -g prefix C-Space
+bind C-Space send-prefix
+
+# Vim style pane selection
+bind h select-pane -L
+bind j select-pane -D
+bind k select-pane -U
+bind l select-pane -R
+
+# Plugin configuration (commented out for testing)
+# set -g @plugin 'tmux-plugins/tpm'
+# set -g @plugin 'tmux-plugins/tmux-sensible'
+# set -g @plugin 'christoomey/vim-tmux-navigator'
+# set -g @plugin 'catppuccin/tmux'
+# set -g @plugin 'tmux-plugins/tmux-yank'
+# set -g @plugin 'tmux-plugins/tmux-resurrect'
+# set -g @plugin 'tmux-plugins/tmux-continuum'
+
+# set -g @continuum-restore 'on'
+
+# set-window-option -g mode-keys vi
+# keybindings for copy mode
+# bind-key -T copy-mode-vi v send-keys -X begin-selection
+# bind-key -T copy-mode-vi C-v send-keys -X rectangle-toggle
+# bind-key -T copy-mode-vi y send-keys -X copy-selection-and-cancel
+
+# Open panes in current directory
+bind '"' split-window -v -c "#{pane_current_path}"
+bind % split-window -h -c "#{pane_current_path}"
+
+# run '~/.tmux/plugins/tpm/tpm'

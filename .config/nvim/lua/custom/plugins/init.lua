@@ -15,5 +15,14 @@ local plugins = {
                         vim.g.mkdp_auto_close = 0
                 end
         },
+        {
+                "github/copilot.vim",
+        },
+        {
+                'barrett-ruth/live-server.nvim',
+                build = 'pnpm add -g live-server',
+                cmd = { 'LiveServerStart', 'LiveServerStop' },
+                config = true,
+        },
 }
 return plugins

@@ -54,8 +54,12 @@ install_zsh_plugins() {
     fi
 }
 
+install_tmux_plugins() {
+    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+}
 
 # Main
 install_tools
 install_zsh_plugins
+install_tmux_plugins
 setup_dotfiles

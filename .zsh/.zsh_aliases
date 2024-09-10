@@ -38,3 +38,5 @@ attach_or_create_tmux_session() {
 alias ta='attach_or_create_tmux_session'
 alias tdev='attach_or_create_tmux_session dev'
 alias ttools='attach_or_create_tmux_session tools'
+
+alias bat='batcat'

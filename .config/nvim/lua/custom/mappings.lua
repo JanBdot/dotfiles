@@ -5,6 +5,7 @@ M.setup = function()
         local set_keymap = vim.api.nvim_set_keymap
         local opts = { noremap = true, silent = true }
 
+        -- Existing keymaps
         set_keymap('n', '<C-h>', '<cmd>TmuxNavigateLeft<CR>', opts)
         set_keymap('n', '<C-l>', '<cmd>TmuxNavigateRight<CR>', opts)
         set_keymap('n', '<C-j>', '<cmd>TmuxNavigateDown<CR>', opts)
@@ -41,6 +42,34 @@ M.setup = function()
 
         -- MD Preview
         set_keymap('n', '<leader>md', '<cmd>MarkdownPreview<CR>', opts)
+
+        -- Basic Keymaps
+        set_keymap('n', '<Space>', '<Nop>', opts)
+        set_keymap('v', '<Space>', '<Nop>', opts)
+
+        -- Remap for dealing with word wrap
+        set_keymap('n', 'k', "v:count == 0 ? 'gk' : 'k'", { noremap = true, silent = true, expr = true })
+        set_keymap('n', 'j', "v:count == 0 ? 'gj' : 'j'", { noremap = true, silent = true, expr = true })
+
+        -- Highlight on yank
+        local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
+        vim.api.nvim_create_autocmd('TextYankPost', {
+                callback = function()
+                        vim.highlight.on_yank()
+                end,
+                group = highlight_group,
+                pattern = '*',
+        })
+
+        -- Diagnostic keymaps
+        set_keymap('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>',
+                { noremap = true, silent = true, desc = 'Go to previous diagnostic message' })
+        set_keymap('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>',
+                { noremap = true, silent = true, desc = 'Go to next diagnostic message' })
+        set_keymap('n', '<leader>e', '<cmd>lua vim.diagnostic.open_float()<CR>',
+                { noremap = true, silent = true, desc = 'Open floating diagnostic message' })
+        set_keymap('n', '<leader>q', '<cmd>lua vim.diagnostic.setloclist()<CR>',
+                { noremap = true, silent = true, desc = 'Open diagnostics list' })
 end
 
 return M
